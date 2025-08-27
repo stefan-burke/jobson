@@ -55,7 +55,7 @@ public class RailsCompatibilityTest {
     
     @Test
     public void testV1RootEndpoint() throws Exception {
-        String response = httpGet("/v1");
+        String response = httpGet("/api/v1");
         JsonNode json = mapper.readTree(response);
         
         assertNotNull("V1 root should have _links", json.get("_links"));
@@ -65,16 +65,16 @@ public class RailsCompatibilityTest {
     
     @Test
     public void testSpecsEndpoint() throws Exception {
-        String response = httpGet("/v1/specs");
+        String response = httpGet("/api/v1/specs");
         JsonNode json = mapper.readTree(response);
         
-        assertNotNull("Specs response should have specs array", json.get("specs"));
-        assertTrue("Specs should be an array", json.get("specs").isArray());
+        assertNotNull("Specs response should have entries array", json.get("entries"));
+        assertTrue("Entries should be an array", json.get("entries").isArray());
     }
     
     @Test
     public void testJobsEndpoint() throws Exception {
-        String response = httpGet("/v1/jobs");
+        String response = httpGet("/api/v1/jobs");
         JsonNode json = mapper.readTree(response);
         
         assertNotNull("Jobs response should have entries", json.get("entries"));
@@ -85,14 +85,14 @@ public class RailsCompatibilityTest {
     public void testCreateAndGetJob() throws Exception {
         // Create a job
         String jobRequest = "{\"name\":\"Test Job\",\"spec\":\"echo\",\"inputs\":{\"message\":\"Hello Test\"}}";
-        String createResponse = httpPost("/v1/jobs", jobRequest);
+        String createResponse = httpPost("/api/v1/jobs", jobRequest);
         JsonNode createJson = mapper.readTree(createResponse);
         
         assertNotNull("Create should return job ID", createJson.get("id"));
         String jobId = createJson.get("id").asText();
         
         // Get job details
-        String jobResponse = httpGet("/v1/jobs/" + jobId);
+        String jobResponse = httpGet("/api/v1/jobs/" + jobId);
         JsonNode jobJson = mapper.readTree(jobResponse);
         
         assertEquals("Job ID should match", jobId, jobJson.get("id").asText());

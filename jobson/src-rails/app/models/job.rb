@@ -6,6 +6,12 @@ class Job
 
   STATUSES = %w[SUBMITTED RUNNING FINISHED ABORTED FATAL_ERROR].freeze
 
+  def self.generate_job_id
+    # Generate a 10-character base36 string like the Java version
+    # SecureRandom.base36 generates lowercase alphanumeric strings
+    SecureRandom.base36(8)  # 8 bytes = ~10-11 base36 chars
+  end
+
   def self.all(page = 1, page_size = 20)
     job_dirs = Dir.glob(FileStorageService.job_path('*')).sort.reverse
     total = job_dirs.count
@@ -13,7 +19,7 @@ class Job
     start_idx = (page - 1) * page_size
     end_idx = start_idx + page_size
     
-    jobs = job_dirs[start_idx...end_idx].map do |job_dir|
+    jobs = (job_dirs[start_idx...end_idx] || []).map do |job_dir|
       job_id = File.basename(job_dir)
       find(job_id)
     end.compact
@@ -41,16 +47,19 @@ class Job
   end
 
   def self.create(params)
-    job_id = SecureRandom.uuid
+    job_id = generate_job_id
     job_path = FileStorageService.job_path(job_id)
     FileUtils.mkdir_p(job_path)
+    
+    # Convert inputs to hash (params[:inputs] is ActionController::Parameters)
+    inputs_hash = params[:inputs]&.to_h || {}
     
     # Save request data
     request_data = {
       'id' => job_id,
       'name' => params[:name],
       'spec' => params[:spec],
-      'inputs' => params[:inputs],
+      'inputs' => inputs_hash,
       'owner' => params[:owner] || 'anonymous'
     }
     
@@ -66,7 +75,7 @@ class Job
     end
     
     # Save inputs
-    FileStorageService.write_json(job_path.join('inputs.json'), params[:inputs] || {})
+    FileStorageService.write_json(job_path.join('inputs.json'), inputs_hash)
     
     # Queue for execution
     JobExecutorJob.perform_later(job_id)

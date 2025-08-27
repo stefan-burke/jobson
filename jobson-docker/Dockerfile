@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 # Set non-interactive to avoid timezone prompts
 ENV DEBIAN_FRONTEND=noninteractive
@@ -9,12 +9,13 @@ RUN apt update && apt install -y \
     ruby \
     ruby-dev \
     build-essential \
+    libyaml-dev \
     supervisor \
-    && gem install bundler
+    bundler
 
 # Install jobson debian package
 COPY target/jobson.deb /tmp
-RUN dpkg -i /tmp/jobson.deb || apt-get install -f -y
+RUN dpkg -i /tmp/jobson.deb
 RUN rm /tmp/jobson.deb
 
 # Configure nginx
@@ -40,8 +41,8 @@ RUN cd /home/jobson && jobson new . --demo
 USER root
 
 # Ensure jobson user can write to necessary directories
-RUN mkdir -p /usr/share/jobson/tmp && chown -R jobson:jobson /usr/share/jobson/tmp
-RUN mkdir -p /usr/share/jobson/log && chown -R jobson:jobson /usr/share/jobson/log
+RUN mkdir -p /usr/share/jobson/tmp /usr/share/jobson/log /usr/share/jobson/workspace && \
+    chown -R jobson:jobson /usr/share/jobson
 
 EXPOSE 80
 CMD ["supervisord", "--configuration", "/etc/supervisord.conf", "--nodaemon"]

@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   # Health check
   get "up" => "rails/health#show", as: :rails_health_check
 
+  # WebSocket routes (must come before resources to have priority)
+  get '/api/v1/jobs/events', to: 'api/v1/jobs#events'
+  get '/api/v1/jobs/:id/stdout/updates', to: 'api/v1/jobs#stdout_updates'
+  get '/api/v1/jobs/:id/stderr/updates', to: 'api/v1/jobs#stderr_updates'
+
   # API v1 routes
   namespace :api do
     namespace :v1 do
@@ -21,6 +26,10 @@ Rails.application.routes.draw do
         end
       end
       
+      # Users endpoint (fake - always returns guest)
+      namespace :users do
+        get :current
+      end
     end
   end
 

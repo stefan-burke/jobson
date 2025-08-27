@@ -4,7 +4,7 @@ module Api
       def index
         specs = JobSpec.all
         render json: {
-          specs: specs.map { |spec| spec_summary(spec) }
+          entries: specs.map { |spec| spec_summary(spec) }
         }
       end
 
@@ -25,7 +25,7 @@ module Api
           'name' => spec.name,
           'description' => spec.description,
           '_links' => {
-            'self' => { 'href' => "/v1/specs/#{spec.id}" }
+            'self' => { 'href' => "/api/v1/specs/#{spec.id}" }
           }
         }
       end

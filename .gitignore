@@ -34,3 +34,6 @@ jobson/src-rails/workspace/wds/
 jobson/src-rails/vendor/bundle/
 jobson/src-rails/config/master.key
 jobson/src-rails/config/credentials.yml.enc
+
+.direnv/
+jobson-ui/.direnv/

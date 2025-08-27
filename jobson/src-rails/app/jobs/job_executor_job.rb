@@ -56,6 +56,8 @@ class JobExecutorJob < ApplicationJob
     
     # Prepare command from template
     command = prepare_command(spec.execution, job.inputs)
+    Rails.logger.info "Executing command: #{command}"
+    Rails.logger.info "With inputs: #{job.inputs.inspect}"
     
     # Execute command
     stdout_file = FileStorageService.job_path(job.id).join('stdout')
@@ -109,7 +111,13 @@ class JobExecutorJob < ApplicationJob
     # Simple template replacement for ${inputs.fieldName}
     result = template.gsub(/\$\{inputs\.(\w+)\}/) do |match|
       field_name = $1
-      inputs[field_name] || inputs[field_name.to_sym] || match
+      value = inputs[field_name]
+      
+      if value.nil?
+        raise "Missing input '#{field_name}' in job inputs"
+      end
+      
+      value.to_s
     end
     
     result

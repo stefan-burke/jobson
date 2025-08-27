@@ -43,7 +43,7 @@ rails server -b 0.0.0.0 -p 8080 -d
 # Wait for server to be ready
 echo "Waiting for server to start..."
 for i in {1..10}; do
-    if curl -s http://localhost:8080/v1 > /dev/null 2>&1; then
+    if curl -s http://localhost:8080/api/v1 > /dev/null 2>&1; then
         echo -e "${GREEN}✓${NC} Rails server is ready"
         break
     fi

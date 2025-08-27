@@ -2,7 +2,8 @@ module Api
   module V1
     class JobsController < ApplicationController
       def index
-        page = params[:page]&.to_i || 1
+        # TypeScript sends 0-based page numbers, but our model uses 1-based
+        page = (params[:page]&.to_i || 0) + 1
         page_size = params[:page_size]&.to_i || 20
         
         result = Job.all(page, page_size)
@@ -26,7 +27,12 @@ module Api
       end
 
       def create
-        job_request = params.permit(:name, :spec, inputs: {})
+        # Handle both nested and non-nested params
+        if params[:job]
+          job_request = params.require(:job).permit(:name, :spec, inputs: {})
+        else
+          job_request = params.permit(:name, :spec, inputs: {})
+        end
         
         # Validate spec exists
         spec = JobSpec.find(job_request[:spec])
@@ -114,7 +120,7 @@ module Api
         job = Job.find(params[:id])
         if job
           render json: {
-            outputs: job.outputs.map { |output| output_details(job.id, output) }
+            entries: job.outputs.map { |output| output_details(job.id, output) }
           }
         else
           render json: { error: 'Job not found' }, status: :not_found
@@ -134,24 +140,108 @@ module Api
           render json: { error: 'Job not found' }, status: :not_found
         end
       end
+      
+      def events
+        # Handle WebSocket upgrade for job events
+        if Faye::WebSocket.websocket?(request.env)
+          ws = Faye::WebSocket.new(request.env)
+          
+          ws.on :open do |event|
+            Rails.logger.info "Job events WebSocket opened"
+            # Store connection for broadcasting
+            JobEventsService.add_client(ws)
+          end
+          
+          ws.on :close do |event|
+            Rails.logger.info "Job events WebSocket closed"
+            JobEventsService.remove_client(ws)
+            ws = nil
+          end
+          
+          # Return async Rack response
+          ws.rack_response
+        else
+          head :upgrade_required
+        end
+      end
+      
+      def stdout_updates
+        handle_output_updates(:stdout)
+      end
+      
+      def stderr_updates
+        handle_output_updates(:stderr)
+      end
 
       private
+      
+      def handle_output_updates(output_type)
+        job_id = params[:id]
+        
+        if Faye::WebSocket.websocket?(request.env)
+          ws = Faye::WebSocket.new(request.env)
+          job = Job.find(job_id)
+          
+          if job.nil?
+            ws.close
+            return ws.rack_response
+          end
+          
+          ws.on :open do |event|
+            Rails.logger.info "#{output_type} updates WebSocket opened for job #{job_id}"
+            
+            # Send current output immediately as binary data (Blob)
+            current_output = output_type == :stdout ? job.stdout : job.stderr
+            if current_output && !current_output.empty?
+              # Send as binary frame - this will be received as a Blob in the browser
+              ws.send(current_output.force_encoding('BINARY'))
+            end
+            
+            # TODO: Set up file watching or polling to send updates
+            # For now, just keep the connection open
+          end
+          
+          ws.on :close do |event|
+            Rails.logger.info "#{output_type} updates WebSocket closed for job #{job_id}"
+            ws = nil
+          end
+          
+          ws.rack_response
+        else
+          head :upgrade_required
+        end
+      end
 
       def job_details(job)
+        # Convert status values to lowercase for UI compatibility
+        normalized_timestamps = job.timestamps.map do |ts|
+          {
+            'status' => ts['status'].downcase,
+            'time' => ts['time']
+          }
+        end
+        
+        # Build base links
+        links = {
+          'self' => { 'href' => "/v1/jobs/#{job.id}" },
+          'stdout' => { 'href' => "/v1/jobs/#{job.id}/stdout" },
+          'stderr' => { 'href' => "/v1/jobs/#{job.id}/stderr" },
+          'spec' => { 'href' => "/v1/jobs/#{job.id}/spec" },
+          'inputs' => { 'href' => "/v1/jobs/#{job.id}/inputs" },
+          'outputs' => { 'href' => "/v1/jobs/#{job.id}/outputs" }
+        }
+        
+        # Only include abort link for running/submitted jobs
+        if job.latest_status && %w[SUBMITTED RUNNING].include?(job.latest_status)
+          links['abort'] = { 'href' => "/v1/jobs/#{job.id}/abort" }
+        end
+        
         {
           'id' => job.id,
           'name' => job.name,
           'owner' => job.owner,
-          'timestamps' => job.timestamps,
-          '_links' => {
-            'self' => { 'href' => "/v1/jobs/#{job.id}" },
-            'abort' => { 'href' => "/v1/jobs/#{job.id}/abort" },
-            'stdout' => { 'href' => "/v1/jobs/#{job.id}/stdout" },
-            'stderr' => { 'href' => "/v1/jobs/#{job.id}/stderr" },
-            'spec' => { 'href' => "/v1/jobs/#{job.id}/spec" },
-            'inputs' => { 'href' => "/v1/jobs/#{job.id}/inputs" },
-            'outputs' => { 'href' => "/v1/jobs/#{job.id}/outputs" }
-          }
+          'timestamps' => normalized_timestamps,
+          '_links' => links
         }
       end
 
