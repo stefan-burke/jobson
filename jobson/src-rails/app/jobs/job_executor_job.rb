@@ -7,22 +7,13 @@ class JobExecutorJob < ApplicationJob
     
     Job.add_timestamp(job_id, 'RUNNING')
     
-    # Broadcast status update
-    ActionCable.server.broadcast("job_events", {
-      job_id: job_id,
-      status: 'RUNNING',
-      timestamp: Time.now.iso8601
-    })
+    # Broadcast status update (if ActionCable is configured)
+    broadcast_event(job_id, 'RUNNING')
     
     begin
       execute_job(job)
       Job.add_timestamp(job_id, 'FINISHED')
-      
-      ActionCable.server.broadcast("job_events", {
-        job_id: job_id,
-        status: 'FINISHED',
-        timestamp: Time.now.iso8601
-      })
+      broadcast_event(job_id, 'FINISHED')
     rescue => e
       Rails.logger.error "Job #{job_id} failed: #{e.message}"
       Rails.logger.error e.backtrace.join("\n")
@@ -36,11 +27,7 @@ class JobExecutorJob < ApplicationJob
         f.puts e.backtrace.join("\n")
       end
       
-      ActionCable.server.broadcast("job_events", {
-        job_id: job_id,
-        status: 'FATAL_ERROR',
-        timestamp: Time.now.iso8601
-      })
+      broadcast_event(job_id, 'FATAL_ERROR')
     end
   end
 
@@ -73,11 +60,8 @@ class JobExecutorJob < ApplicationJob
         io.each_line do |line|
           File.open(stdout_file, 'a') { |f| f.puts line }
           
-          # Broadcast stdout updates
-          ActionCable.server.broadcast("job_#{job.id}_stdout", {
-            data: line,
-            timestamp: Time.now.iso8601
-          })
+          # Broadcast stdout updates (if ActionCable is configured)
+          broadcast_stdout(job.id, line)
         end
       end
     end
@@ -133,5 +117,34 @@ class JobExecutorJob < ApplicationJob
         FileUtils.cp_r(source, destination)
       end
     end
+  end
+  
+  def broadcast_event(job_id, status)
+    return unless action_cable_configured?
+    
+    ActionCable.server.broadcast("job_events", {
+      job_id: job_id,
+      status: status,
+      timestamp: Time.now.iso8601
+    })
+  rescue => e
+    Rails.logger.debug "Could not broadcast event: #{e.message}"
+  end
+  
+  def broadcast_stdout(job_id, data)
+    return unless action_cable_configured?
+    
+    ActionCable.server.broadcast("job_#{job_id}_stdout", {
+      data: data,
+      timestamp: Time.now.iso8601
+    })
+  rescue => e
+    Rails.logger.debug "Could not broadcast stdout: #{e.message}"
+  end
+  
+  def action_cable_configured?
+    defined?(ActionCable) && ActionCable.server.present?
+  rescue
+    false
   end
 end
