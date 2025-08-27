@@ -63,7 +63,7 @@ import static com.github.jobson.HttpStatusCodes.NOT_FOUND;
 import static com.github.jobson.TestHelpers.*;
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 public final class JobResourceTest {

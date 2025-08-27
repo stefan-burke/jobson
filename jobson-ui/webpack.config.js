@@ -39,11 +39,8 @@ module.exports = {
 
 		historyApiFallback: true,
 		proxy: {
-			[apiPrefix]: {
+			'/api': {
 				target: "http://localhost:8080",
-				pathRewrite: {
-					["^" + apiPrefix]: "/"
-				},
 				secure: false,
 				ws: true,
 			}
@@ -52,6 +49,10 @@ module.exports = {
 
 	plugins: [
 		new HtmlWebpackPlugin({template: './src/html/index.html'}),
-		new CopyWebpackPlugin(["src/resources/config.json"]),
+		new CopyWebpackPlugin({
+			patterns: [
+				{ from: "src/resources/config.json" }
+			]
+		}),
 	],
 };

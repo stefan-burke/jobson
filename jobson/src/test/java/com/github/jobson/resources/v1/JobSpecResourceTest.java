@@ -39,7 +39,7 @@ import static com.github.jobson.Constants.HTTP_SPECS_PATH;
 import static com.github.jobson.TestHelpers.*;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 public final class JobSpecResourceTest {
