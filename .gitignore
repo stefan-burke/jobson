@@ -23,3 +23,10 @@ buildNumber.properties
 
 #python
 venv/
+
+# Rails tmp directories
+tmp/
+log/*.log
+.byebug_history
+workspace/jobs/
+workspace/wds/
