@@ -24,9 +24,13 @@ buildNumber.properties
 #python
 venv/
 
-# Rails tmp directories
-tmp/
-log/*.log
-.byebug_history
-workspace/jobs/
-workspace/wds/
+# Rails directories
+jobson/src-rails/tmp/
+jobson/src-rails/log/
+jobson/src-rails/storage/
+jobson/src-rails/.byebug_history
+jobson/src-rails/workspace/jobs/
+jobson/src-rails/workspace/wds/
+jobson/src-rails/vendor/bundle/
+jobson/src-rails/config/master.key
+jobson/src-rails/config/credentials.yml.enc

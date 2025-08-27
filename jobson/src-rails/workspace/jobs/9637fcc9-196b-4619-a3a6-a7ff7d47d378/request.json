@@ -1,7 +1,0 @@
-{
-  "id": "9637fcc9-196b-4619-a3a6-a7ff7d47d378",
-  "name": "Test Echo Job",
-  "spec": "echo",
-  "inputs": "{\"message\"=>\"Hello from Rails!\"}",
-  "owner": "anonymous"
-}

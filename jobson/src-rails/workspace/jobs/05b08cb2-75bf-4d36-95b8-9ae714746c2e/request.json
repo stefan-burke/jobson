@@ -1,7 +1,0 @@
-{
-  "id": "05b08cb2-75bf-4d36-95b8-9ae714746c2e",
-  "name": "Test Job",
-  "spec": "echo",
-  "inputs": "{\"message\"=>\"API Test\"}",
-  "owner": "anonymous"
-}
