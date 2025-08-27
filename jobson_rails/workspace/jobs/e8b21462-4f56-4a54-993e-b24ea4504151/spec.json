@@ -1,0 +1,21 @@
+{
+  "id": "echo",
+  "name": "Echo",
+  "description": "Simple echo command that prints input to stdout",
+  "expectedInputs": [
+    {
+      "id": "message",
+      "type": "string",
+      "name": "Message",
+      "description": "The message to echo",
+      "default": "Hello, World!"
+    }
+  ],
+  "execution": {
+    "application": "echo",
+    "arguments": [
+      "${inputs.message}"
+    ]
+  },
+  "expectedOutputs": []
+}

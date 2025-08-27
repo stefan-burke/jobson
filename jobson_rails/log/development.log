@@ -1,0 +1,51 @@
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:21:40 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 41ms (Views: 0.4ms | GC: 2.3ms)
+
+
+Started POST "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:21:47 +0000
+Processing by Api::V1::JobsController#create as */*
+  Parameters: {"name"=>"Test Echo Job", "spec"=>"echo", "inputs"=>{"message"=>"Hello from Rails!"}, "job"=>{"name"=>"Test Echo Job", "spec"=>"echo", "inputs"=>{"message"=>"Hello from Rails!"}}}
+[31mUnpermitted parameter: :job. Context: { controller: Api::V1::JobsController, action: create, request: #<ActionDispatch::Request:0x00007f9dab4d7128>, params: {"name"=>"Test Echo Job", "spec"=>"echo", "inputs"=>{"message"=>"Hello from Rails!"}, "controller"=>"api/v1/jobs", "action"=>"create", "job"=>{"name"=>"Test Echo Job", "spec"=>"echo", "inputs"=>{"message"=>"Hello from Rails!"}}} }[0m
+[ActiveJob] Enqueued JobExecutorJob (Job ID: 9ff1ad92-883a-4430-853a-e3035ec4b92e) to Async(default) with arguments: "9637fcc9-196b-4619-a3a6-a7ff7d47d378"
+[ActiveJob] ↳ app/models/job.rb:72:in `create'
+[ActiveJob] [JobExecutorJob] [9ff1ad92-883a-4430-853a-e3035ec4b92e] Performing JobExecutorJob (Job ID: 9ff1ad92-883a-4430-853a-e3035ec4b92e) from Async(default) enqueued at 2025-08-27T08:21:47.768215247Z with arguments: "9637fcc9-196b-4619-a3a6-a7ff7d47d378"
+Completed 201 Created in 74ms (Views: 0.3ms | GC: 32.9ms)
+
+
+[ActiveJob] [JobExecutorJob] [9ff1ad92-883a-4430-853a-e3035ec4b92e] [ActionCable] Broadcasting to job_events: {:job_id=>"9637fcc9-196b-4619-a3a6-a7ff7d47d378", :status=>"RUNNING", :timestamp=>"2025-08-27T08:21:47+00:00"}
+[ActiveJob] [JobExecutorJob] [9ff1ad92-883a-4430-853a-e3035ec4b92e] [ActionCable] Broadcasting to job_9637fcc9-196b-4619-a3a6-a7ff7d47d378_stdout: {:data=>"message\n", :timestamp=>"2025-08-27T08:21:47+00:00"}
+[ActiveJob] [JobExecutorJob] [9ff1ad92-883a-4430-853a-e3035ec4b92e] [ActionCable] Broadcasting to job_events: {:job_id=>"9637fcc9-196b-4619-a3a6-a7ff7d47d378", :status=>"FINISHED", :timestamp=>"2025-08-27T08:21:47+00:00"}
+[ActiveJob] [JobExecutorJob] [9ff1ad92-883a-4430-853a-e3035ec4b92e] Performed JobExecutorJob (Job ID: 9ff1ad92-883a-4430-853a-e3035ec4b92e) from Async(default) in 72.09ms
+Started GET "/v1/jobs/9637fcc9-196b-4619-a3a6-a7ff7d47d378" for 127.0.0.1 at 2025-08-27 08:21:53 +0000
+Processing by Api::V1::JobsController#show as */*
+  Parameters: {"id"=>"9637fcc9-196b-4619-a3a6-a7ff7d47d378"}
+Completed 200 OK in 3ms (Views: 0.3ms | GC: 2.0ms)
+
+
+Started GET "/v1/jobs/9637fcc9-196b-4619-a3a6-a7ff7d47d378/stdout" for 127.0.0.1 at 2025-08-27 08:21:59 +0000
+Processing by Api::V1::JobsController#stdout as */*
+  Parameters: {"id"=>"9637fcc9-196b-4619-a3a6-a7ff7d47d378"}
+Completed 200 OK in 11ms (Views: 0.4ms | GC: 8.7ms)
+
+
+Started POST "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:22:22 +0000
+Processing by Api::V1::JobsController#create as */*
+  Parameters: {"name"=>"Test Echo Job 2", "spec"=>"echo", "inputs"=>{"message"=>"Hello from Rails!"}, "job"=>{"name"=>"Test Echo Job 2", "spec"=>"echo", "inputs"=>{"message"=>"Hello from Rails!"}}}
+[31mUnpermitted parameter: :job. Context: { controller: Api::V1::JobsController, action: create, request: #<ActionDispatch::Request:0x00007f9dab5c5fa8>, params: {"name"=>"Test Echo Job 2", "spec"=>"echo", "inputs"=>{"message"=>"Hello from Rails!"}, "controller"=>"api/v1/jobs", "action"=>"create", "job"=>{"name"=>"Test Echo Job 2", "spec"=>"echo", "inputs"=>{"message"=>"Hello from Rails!"}}} }[0m
+[ActiveJob] Enqueued JobExecutorJob (Job ID: 28608950-26de-4dc5-9aac-e8df5f81e0b6) to Async(default) with arguments: "e8b21462-4f56-4a54-993e-b24ea4504151"
+[ActiveJob] ↳ app/models/job.rb:72:in `create'
+Completed 201 Created in 10ms (Views: 0.5ms | GC: 0.2ms)
+
+
+[ActiveJob] [JobExecutorJob] [28608950-26de-4dc5-9aac-e8df5f81e0b6] Performing JobExecutorJob (Job ID: 28608950-26de-4dc5-9aac-e8df5f81e0b6) from Async(default) enqueued at 2025-08-27T08:22:22.344718069Z with arguments: "e8b21462-4f56-4a54-993e-b24ea4504151"
+[ActiveJob] [JobExecutorJob] [28608950-26de-4dc5-9aac-e8df5f81e0b6] [ActionCable] Broadcasting to job_events: {:job_id=>"e8b21462-4f56-4a54-993e-b24ea4504151", :status=>"RUNNING", :timestamp=>"2025-08-27T08:22:22+00:00"}
+[ActiveJob] [JobExecutorJob] [28608950-26de-4dc5-9aac-e8df5f81e0b6] [ActionCable] Broadcasting to job_e8b21462-4f56-4a54-993e-b24ea4504151_stdout: {:data=>"message\n", :timestamp=>"2025-08-27T08:22:22+00:00"}
+[ActiveJob] [JobExecutorJob] [28608950-26de-4dc5-9aac-e8df5f81e0b6] [ActionCable] Broadcasting to job_events: {:job_id=>"e8b21462-4f56-4a54-993e-b24ea4504151", :status=>"FINISHED", :timestamp=>"2025-08-27T08:22:22+00:00"}
+[ActiveJob] [JobExecutorJob] [28608950-26de-4dc5-9aac-e8df5f81e0b6] Performed JobExecutorJob (Job ID: 28608950-26de-4dc5-9aac-e8df5f81e0b6) from Async(default) in 18.15ms
+Started GET "/v1/jobs/e8b21462-4f56-4a54-993e-b24ea4504151/stdout" for 127.0.0.1 at 2025-08-27 08:22:29 +0000
+Processing by Api::V1::JobsController#stdout as */*
+  Parameters: {"id"=>"e8b21462-4f56-4a54-993e-b24ea4504151"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
