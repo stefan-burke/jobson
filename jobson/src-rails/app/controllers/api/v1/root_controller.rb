@@ -4,8 +4,8 @@ module Api
       def index
         render json: {
           '_links' => {
-            'specs' => { 'href' => '/v1/specs' },
-            'jobs' => { 'href' => '/v1/jobs' }
+            'specs' => { 'href' => '/api/v1/specs' },
+            'jobs' => { 'href' => '/api/v1/jobs' }
           }
         }
       end
