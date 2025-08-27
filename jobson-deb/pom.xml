@@ -13,50 +13,15 @@
     <artifactId>jobson-deb</artifactId>
     <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.github.jobson</groupId>
-            <artifactId>jobson-nix</artifactId>
-            <version>1.0.14</version>
-            <type>tar.gz</type>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
-            <!-- Unpack nix tarball -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>unpack</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>com.github.jobson</groupId>
-                                    <artifactId>jobson-nix</artifactId>
-                                    <type>tar.gz</type>
-                                    <overWrite>true</overWrite>
-                                    <outputDirectory>${project.build.directory}/dependencies</outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Compile (repackage nix tarball) + package (create .deb pkg) -->
+            <!-- Package Rails app into deb -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>repackage-nix-tarball</id>
+                        <id>repackage-rails-app</id>
                         <phase>compile</phase>
                         <goals>
                             <goal>run</goal>
@@ -64,9 +29,7 @@
                         <configuration>
                             <target>
                                 <exec executable="bash" failonerror="true">
-                                    <arg value="repackage-nix-tarball.sh" />
-                                    <arg value="${project.artifactId}" />
-                                    <arg value="${project.version}" />
+                                    <arg value="repackage-rails-app.sh" />
                                     <arg value="${project.version}" />
                                 </exec>
                             </target>

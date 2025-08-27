@@ -1,0 +1,47 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+docs/
+jobson-docs/
+
+# Java source (not needed for Rails)
+jobson/src/main/
+jobson/src/test/
+*.java
+
+# Build artifacts
+target/
+*.jar
+*.war
+*.deb
+
+# Development files
+*.log
+.byebug_history
+
+# Rails temp files
+jobson/src-rails/tmp/
+jobson/src-rails/log/
+jobson/src-rails/storage/
+jobson/src-rails/workspace/
+jobson/src-rails/vendor/bundle/
+
+# UI source (only needed if serving separately)
+jobson-ui/node_modules/
+jobson-ui/src/
+
+# Test files
+test/
+spec/
+*.test.*
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# macOS
+.DS_Store
