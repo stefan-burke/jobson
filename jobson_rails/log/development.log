@@ -49,3 +49,1182 @@ Processing by Api::V1::JobsController#stdout as */*
 Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2025-08-27 08:28:49 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 8ms (Views: 0.7ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-08-27 08:28:49 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 0ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:28:49 +0000
+  
+ActionController::RoutingError (uninitialized constant V1)
+Caused by: ActionDispatch::MissingController (uninitialized constant V1)
+Caused by: NameError (uninitialized constant V1)
+
+Information for: ActionController::RoutingError (uninitialized constant V1):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant V1):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in `rescue in controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant V1):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:28:49 +0000
+  
+ActionController::RoutingError (uninitialized constant V1)
+Caused by: ActionDispatch::MissingController (uninitialized constant V1)
+Caused by: NameError (uninitialized constant V1)
+
+Information for: ActionController::RoutingError (uninitialized constant V1):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant V1):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in `rescue in controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant V1):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+  
+ActionController::RoutingError (uninitialized constant V1)
+Caused by: ActionDispatch::MissingController (uninitialized constant V1)
+Caused by: NameError (uninitialized constant V1)
+
+Information for: ActionController::RoutingError (uninitialized constant V1):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant V1):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in `rescue in controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant V1):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+  
+ActionController::RoutingError (uninitialized constant V1)
+Caused by: ActionDispatch::MissingController (uninitialized constant V1)
+Caused by: NameError (uninitialized constant V1)
+
+Information for: ActionController::RoutingError (uninitialized constant V1):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant V1):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in `rescue in controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant V1):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 12ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobsController#index as */*
+Completed 200 OK in 3ms (Views: 0.6ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobsController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobsController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started POST "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:28:50 +0000
+Processing by Api::V1::JobsController#create as */*
+  Parameters: {"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}, "job"=>{"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}}}
+[31mUnpermitted parameter: :job. Context: { controller: Api::V1::JobsController, action: create, request: #<ActionDispatch::Request:0x00007f9f20265fb8>, params: {"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}, "controller"=>"api/v1/jobs", "action"=>"create", "job"=>{"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}}} }[0m
+Completed 500 Internal Server Error in 2ms (GC: 0.0ms)
+
+
+  
+TypeError (wrong element type Hash at 0 (expected array)):
+  
+app/services/file_storage_service.rb:33:in `to_h'
+app/services/file_storage_service.rb:33:in `write_json'
+app/models/job.rb:89:in `add_timestamp'
+app/models/job.rb:60:in `create'
+app/controllers/api/v1/jobs_controller.rb:38:in `create'
+Started GET "/" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 7ms (Views: 0.5ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 0ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+  
+ActionController::RoutingError (uninitialized constant V1)
+Caused by: ActionDispatch::MissingController (uninitialized constant V1)
+Caused by: NameError (uninitialized constant V1)
+
+Information for: ActionController::RoutingError (uninitialized constant V1):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant V1):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in `rescue in controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant V1):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+  
+ActionController::RoutingError (uninitialized constant V1)
+Caused by: ActionDispatch::MissingController (uninitialized constant V1)
+Caused by: NameError (uninitialized constant V1)
+
+Information for: ActionController::RoutingError (uninitialized constant V1):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant V1):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in `rescue in controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant V1):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+  
+ActionController::RoutingError (uninitialized constant V1)
+Caused by: ActionDispatch::MissingController (uninitialized constant V1)
+Caused by: NameError (uninitialized constant V1)
+
+Information for: ActionController::RoutingError (uninitialized constant V1):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant V1):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in `rescue in controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant V1):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+  
+ActionController::RoutingError (uninitialized constant V1)
+Caused by: ActionDispatch::MissingController (uninitialized constant V1)
+Caused by: NameError (uninitialized constant V1)
+
+Information for: ActionController::RoutingError (uninitialized constant V1):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant V1):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in `rescue in controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant V1):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in `controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.2.0) lib/rack/etag.rb:29:in `call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.0) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.0) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.1) lib/puma/configuration.rb:279:in `call'
+puma (6.6.1) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in `process_client'
+puma (6.6.1) lib/puma/server.rb:254:in `block in run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 11ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 1ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobsController#index as */*
+Completed 200 OK in 3ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobsController#index as */*
+Completed 200 OK in 1ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobsController#index as */*
+Completed 200 OK in 1ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started POST "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:30:04 +0000
+Processing by Api::V1::JobsController#create as */*
+  Parameters: {"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}, "job"=>{"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}}}
+[31mUnpermitted parameter: :job. Context: { controller: Api::V1::JobsController, action: create, request: #<ActionDispatch::Request:0x00007f8e14363ea0>, params: {"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}, "controller"=>"api/v1/jobs", "action"=>"create", "job"=>{"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}}} }[0m
+[ActiveJob] Enqueued JobExecutorJob (Job ID: 75afed02-0026-40f0-b8bd-1cbf208065e3) to Async(default) with arguments: "166e7dbb-5d73-487b-946f-11069462f40c"
+[ActiveJob] ↳ app/models/job.rb:72:in `create'
+Completed 201 Created in 21ms (Views: 0.2ms | GC: 0.0ms)
+
+
+[ActiveJob] [JobExecutorJob] [75afed02-0026-40f0-b8bd-1cbf208065e3] Performing JobExecutorJob (Job ID: 75afed02-0026-40f0-b8bd-1cbf208065e3) from Async(default) enqueued at 2025-08-27T08:30:04.952545567Z with arguments: "166e7dbb-5d73-487b-946f-11069462f40c"
+[ActiveJob] [JobExecutorJob] [75afed02-0026-40f0-b8bd-1cbf208065e3] [ActionCable] Broadcasting to job_events: {:job_id=>"166e7dbb-5d73-487b-946f-11069462f40c", :status=>"RUNNING", :timestamp=>"2025-08-27T08:30:04+00:00"}
+[ActiveJob] [JobExecutorJob] [75afed02-0026-40f0-b8bd-1cbf208065e3] [ActionCable] Broadcasting to job_166e7dbb-5d73-487b-946f-11069462f40c_stdout: {:data=>"message\n", :timestamp=>"2025-08-27T08:30:04+00:00"}
+[ActiveJob] [JobExecutorJob] [75afed02-0026-40f0-b8bd-1cbf208065e3] [ActionCable] Broadcasting to job_events: {:job_id=>"166e7dbb-5d73-487b-946f-11069462f40c", :status=>"FINISHED", :timestamp=>"2025-08-27T08:30:04+00:00"}
+[ActiveJob] [JobExecutorJob] [75afed02-0026-40f0-b8bd-1cbf208065e3] Performed JobExecutorJob (Job ID: 75afed02-0026-40f0-b8bd-1cbf208065e3) from Async(default) in 18.75ms
+Started GET "/v1/jobs/166e7dbb-5d73-487b-946f-11069462f40c" for 127.0.0.1 at 2025-08-27 08:30:07 +0000
+Processing by Api::V1::JobsController#show as */*
+  Parameters: {"id"=>"166e7dbb-5d73-487b-946f-11069462f40c"}
+Completed 200 OK in 1ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/166e7dbb-5d73-487b-946f-11069462f40c" for 127.0.0.1 at 2025-08-27 08:30:07 +0000
+Processing by Api::V1::JobsController#show as */*
+  Parameters: {"id"=>"166e7dbb-5d73-487b-946f-11069462f40c"}
+Completed 200 OK in 1ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/166e7dbb-5d73-487b-946f-11069462f40c/stdout" for 127.0.0.1 at 2025-08-27 08:30:07 +0000
+Processing by Api::V1::JobsController#stdout as */*
+  Parameters: {"id"=>"166e7dbb-5d73-487b-946f-11069462f40c"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/166e7dbb-5d73-487b-946f-11069462f40c/stderr" for 127.0.0.1 at 2025-08-27 08:30:07 +0000
+Processing by Api::V1::JobsController#stderr as */*
+  Parameters: {"id"=>"166e7dbb-5d73-487b-946f-11069462f40c"}
+Completed 200 OK in 1ms (Views: 0.1ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/166e7dbb-5d73-487b-946f-11069462f40c/spec" for 127.0.0.1 at 2025-08-27 08:30:07 +0000
+Processing by Api::V1::JobsController#spec as */*
+  Parameters: {"id"=>"166e7dbb-5d73-487b-946f-11069462f40c"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/166e7dbb-5d73-487b-946f-11069462f40c/inputs" for 127.0.0.1 at 2025-08-27 08:30:07 +0000
+Processing by Api::V1::JobsController#inputs as */*
+  Parameters: {"id"=>"166e7dbb-5d73-487b-946f-11069462f40c"}
+Completed 200 OK in 1ms (Views: 0.1ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/166e7dbb-5d73-487b-946f-11069462f40c/outputs" for 127.0.0.1 at 2025-08-27 08:30:07 +0000
+Processing by Api::V1::JobsController#outputs as */*
+  Parameters: {"id"=>"166e7dbb-5d73-487b-946f-11069462f40c"}
+Completed 200 OK in 1ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started POST "/v1/jobs/166e7dbb-5d73-487b-946f-11069462f40c/abort" for 127.0.0.1 at 2025-08-27 08:30:07 +0000
+Processing by Api::V1::JobsController#abort as */*
+  Parameters: {"id"=>"166e7dbb-5d73-487b-946f-11069462f40c"}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started DELETE "/v1/jobs/166e7dbb-5d73-487b-946f-11069462f40c" for 127.0.0.1 at 2025-08-27 08:30:07 +0000
+Processing by Api::V1::JobsController#destroy as */*
+  Parameters: {"id"=>"166e7dbb-5d73-487b-946f-11069462f40c"}
+Completed 204 No Content in 30ms (GC: 28.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 8ms (Views: 0.5ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 0ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 0ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 0ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 0ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::RootController#index as */*
+Completed 200 OK in 0ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 12ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 2ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::JobSpecsController#index as */*
+Completed 200 OK in 2ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/specs/echo" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::JobSpecsController#show as */*
+  Parameters: {"id"=>"echo"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::JobsController#index as */*
+Completed 200 OK in 4ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:30:46 +0000
+Processing by Api::V1::JobsController#index as */*
+Completed 200 OK in 2ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:30:47 +0000
+Processing by Api::V1::JobsController#index as */*
+Completed 200 OK in 2ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started POST "/v1/jobs" for 127.0.0.1 at 2025-08-27 08:30:47 +0000
+Processing by Api::V1::JobsController#create as */*
+  Parameters: {"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}, "job"=>{"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}}}
+[31mUnpermitted parameter: :job. Context: { controller: Api::V1::JobsController, action: create, request: #<ActionDispatch::Request:0x00007f14feefdca0>, params: {"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}, "controller"=>"api/v1/jobs", "action"=>"create", "job"=>{"name"=>"Test Job", "spec"=>"echo", "inputs"=>{"message"=>"API Test"}}} }[0m
+[ActiveJob] Enqueued JobExecutorJob (Job ID: 0715c960-d26d-4a61-9ee1-c0d3b6ef0bbb) to Async(default) with arguments: "05b08cb2-75bf-4d36-95b8-9ae714746c2e"
+[ActiveJob] ↳ app/models/job.rb:72:in `create'
+Completed 201 Created in 25ms (Views: 0.4ms | GC: 0.0ms)
+
+
+[ActiveJob] [JobExecutorJob] [0715c960-d26d-4a61-9ee1-c0d3b6ef0bbb] Performing JobExecutorJob (Job ID: 0715c960-d26d-4a61-9ee1-c0d3b6ef0bbb) from Async(default) enqueued at 2025-08-27T08:30:47.170720123Z with arguments: "05b08cb2-75bf-4d36-95b8-9ae714746c2e"
+[ActiveJob] [JobExecutorJob] [0715c960-d26d-4a61-9ee1-c0d3b6ef0bbb] [ActionCable] Broadcasting to job_events: {:job_id=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e", :status=>"RUNNING", :timestamp=>"2025-08-27T08:30:47+00:00"}
+[ActiveJob] [JobExecutorJob] [0715c960-d26d-4a61-9ee1-c0d3b6ef0bbb] [ActionCable] Broadcasting to job_05b08cb2-75bf-4d36-95b8-9ae714746c2e_stdout: {:data=>"message\n", :timestamp=>"2025-08-27T08:30:47+00:00"}
+[ActiveJob] [JobExecutorJob] [0715c960-d26d-4a61-9ee1-c0d3b6ef0bbb] [ActionCable] Broadcasting to job_events: {:job_id=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e", :status=>"FINISHED", :timestamp=>"2025-08-27T08:30:47+00:00"}
+[ActiveJob] [JobExecutorJob] [0715c960-d26d-4a61-9ee1-c0d3b6ef0bbb] Performed JobExecutorJob (Job ID: 0715c960-d26d-4a61-9ee1-c0d3b6ef0bbb) from Async(default) in 32.78ms
+Started GET "/v1/jobs/05b08cb2-75bf-4d36-95b8-9ae714746c2e" for 127.0.0.1 at 2025-08-27 08:30:49 +0000
+Processing by Api::V1::JobsController#show as */*
+  Parameters: {"id"=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e"}
+Completed 200 OK in 2ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/05b08cb2-75bf-4d36-95b8-9ae714746c2e" for 127.0.0.1 at 2025-08-27 08:30:49 +0000
+Processing by Api::V1::JobsController#show as */*
+  Parameters: {"id"=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e"}
+Completed 200 OK in 1ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/05b08cb2-75bf-4d36-95b8-9ae714746c2e/stdout" for 127.0.0.1 at 2025-08-27 08:30:49 +0000
+Processing by Api::V1::JobsController#stdout as */*
+  Parameters: {"id"=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e"}
+Completed 200 OK in 1ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/05b08cb2-75bf-4d36-95b8-9ae714746c2e/stderr" for 127.0.0.1 at 2025-08-27 08:30:49 +0000
+Processing by Api::V1::JobsController#stderr as */*
+  Parameters: {"id"=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/05b08cb2-75bf-4d36-95b8-9ae714746c2e/spec" for 127.0.0.1 at 2025-08-27 08:30:49 +0000
+Processing by Api::V1::JobsController#spec as */*
+  Parameters: {"id"=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e"}
+Completed 200 OK in 2ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/05b08cb2-75bf-4d36-95b8-9ae714746c2e/inputs" for 127.0.0.1 at 2025-08-27 08:30:49 +0000
+Processing by Api::V1::JobsController#inputs as */*
+  Parameters: {"id"=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/v1/jobs/05b08cb2-75bf-4d36-95b8-9ae714746c2e/outputs" for 127.0.0.1 at 2025-08-27 08:30:49 +0000
+Processing by Api::V1::JobsController#outputs as */*
+  Parameters: {"id"=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e"}
+Completed 200 OK in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started POST "/v1/jobs/05b08cb2-75bf-4d36-95b8-9ae714746c2e/abort" for 127.0.0.1 at 2025-08-27 08:30:49 +0000
+Processing by Api::V1::JobsController#abort as */*
+  Parameters: {"id"=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e"}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started DELETE "/v1/jobs/05b08cb2-75bf-4d36-95b8-9ae714746c2e" for 127.0.0.1 at 2025-08-27 08:30:49 +0000
+Processing by Api::V1::JobsController#destroy as */*
+  Parameters: {"id"=>"05b08cb2-75bf-4d36-95b8-9ae714746c2e"}
+Completed 204 No Content in 1ms (GC: 0.0ms)
+
+

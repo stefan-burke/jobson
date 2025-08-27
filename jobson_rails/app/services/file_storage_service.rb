@@ -29,8 +29,15 @@ class FileStorageService
 
     def write_json(path, data)
       FileUtils.mkdir_p(File.dirname(path))
-      # Convert to regular hash if it's a Rails hash object
-      json_data = data.respond_to?(:to_h) ? data.to_h : data
+      # Convert Rails objects to plain Ruby objects for JSON serialization
+      json_data = case data
+                  when Hash, ActionController::Parameters
+                    data.to_h
+                  when Array
+                    data.map { |item| item.respond_to?(:to_h) ? item.to_h : item }
+                  else
+                    data
+                  end
       File.write(path, JSON.pretty_generate(json_data))
     end
   end

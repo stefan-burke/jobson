@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # API v1 routes
-  namespace :v1 do
+  namespace :v1, module: 'api/v1' do
     root to: 'root#index'
     
     resources :specs, controller: '/api/v1/job_specs', only: [:index, :show]
