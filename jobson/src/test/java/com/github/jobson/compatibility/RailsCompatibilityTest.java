@@ -64,6 +64,31 @@ public class RailsCompatibilityTest {
     }
     
     @Test
+    public void testDualPathSupport() throws Exception {
+        // Test that both /v1 and /api/v1 work
+        String v1Response = httpGet("/v1");
+        JsonNode v1Json = mapper.readTree(v1Response);
+        
+        String apiV1Response = httpGet("/api/v1");
+        JsonNode apiV1Json = mapper.readTree(apiV1Response);
+        
+        // Both should have the same structure
+        assertNotNull("/v1 should have _links", v1Json.get("_links"));
+        assertNotNull("/api/v1 should have _links", apiV1Json.get("_links"));
+        
+        // Test specs endpoint on both paths
+        String v1Specs = httpGet("/v1/specs");
+        JsonNode v1SpecsJson = mapper.readTree(v1Specs);
+        
+        String apiV1Specs = httpGet("/api/v1/specs");
+        JsonNode apiV1SpecsJson = mapper.readTree(apiV1Specs);
+        
+        assertTrue("Both paths should return specs", 
+                   v1SpecsJson.get("entries").isArray() && 
+                   apiV1SpecsJson.get("entries").isArray());
+    }
+    
+    @Test
     public void testSpecsEndpoint() throws Exception {
         String response = httpGet("/api/v1/specs");
         JsonNode json = mapper.readTree(response);
