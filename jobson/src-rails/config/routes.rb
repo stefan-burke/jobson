@@ -2,34 +2,50 @@ Rails.application.routes.draw do
   # Health check
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # WebSocket routes (must come before resources to have priority)
-  get '/api/v1/jobs/events', to: 'api/v1/jobs#events'
-  get '/api/v1/jobs/:id/stdout/updates', to: 'api/v1/jobs#stdout_updates'
-  get '/api/v1/jobs/:id/stderr/updates', to: 'api/v1/jobs#stderr_updates'
+  # Define v1 API routes as a reusable concern
+  concern :api_v1_routes do
+    # Root for this version
+    get '', to: 'api/v1/root#index'
+    
+    # WebSocket routes
+    get 'jobs/events', to: 'api/v1/jobs#events'
+    get 'jobs/:id/stdout/updates', to: 'api/v1/jobs#stdout_updates'
+    get 'jobs/:id/stderr/updates', to: 'api/v1/jobs#stderr_updates'
+    
+    # Specs
+    get 'specs', to: 'api/v1/job_specs#index'
+    get 'specs/:id', to: 'api/v1/job_specs#show'
+    
+    # Jobs
+    get 'jobs', to: 'api/v1/jobs#index'
+    post 'jobs', to: 'api/v1/jobs#create'
+    get 'jobs/:id', to: 'api/v1/jobs#show'
+    delete 'jobs/:id', to: 'api/v1/jobs#destroy'
+    post 'jobs/:id/abort', to: 'api/v1/jobs#abort'
+    get 'jobs/:id/stdout', to: 'api/v1/jobs#stdout'
+    get 'jobs/:id/stderr', to: 'api/v1/jobs#stderr'
+    get 'jobs/:id/spec', to: 'api/v1/jobs#spec'
+    get 'jobs/:id/inputs', to: 'api/v1/jobs#inputs'
+    get 'jobs/:id/outputs', to: 'api/v1/jobs#outputs'
+    get 'jobs/:id/outputs/:output_id', to: 'api/v1/jobs#output'
+    
+    # Users
+    get 'users/current', to: 'api/v1/users#current'
+  end
 
-  # API v1 routes
+  # Mount the API routes at both /api/v1 and /v1
+  scope '/api/v1' do
+    concerns :api_v1_routes
+  end
+  
+  scope '/v1' do
+    concerns :api_v1_routes
+  end
+
+  # Also keep the namespace structure for backward compatibility
   namespace :api do
     namespace :v1 do
-      root to: 'root#index'
-      
-      resources :specs, controller: 'job_specs', only: [:index, :show]
-      
-      resources :jobs, only: [:index, :show, :create, :destroy] do
-        member do
-          post :abort
-          get :stdout
-          get :stderr
-          get :spec
-          get :inputs
-          get :outputs
-          get 'outputs/:output_id', action: :output, as: :output
-        end
-      end
-      
-      # Users endpoint (fake - always returns guest)
-      namespace :users do
-        get :current
-      end
+      # This ensures the controllers are still found in the api/v1 module
     end
   end
 
