@@ -1,0 +1,13 @@
+name: Echo
+description: Simple echo command
+
+expectedInputs:
+  - id: message
+    type: string
+    name: Message
+    description: The message to echo
+
+execution:
+  application: echo
+  arguments:
+    - "${inputs.message}"

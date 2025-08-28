@@ -1,0 +1,16 @@
+name: Sleep
+description: Sleep for specified seconds
+
+expectedInputs:
+  - id: seconds
+    type: integer
+    name: Seconds
+    description: Number of seconds to sleep
+    default: 1
+
+execution:
+  application: sleep
+  arguments:
+    - "${inputs.seconds}"
+
+expectedOutputs: []

@@ -1,0 +1,56 @@
+INFO  [2025-08-28 10:35:23,455] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2025-08-28 10:35:23,458] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2025-08-28 10:35:23,633] io.dropwizard.server.ServerFactory: Starting App
+       __      __
+      / /___  / /_  _________  ____
+ __  / / __ \/ __ \/ ___/ __ \/ __ \
+/ /_/ / /_/ / /_/ (__  ) /_/ / / / /
+\____/\____/_.___/____/\____/_/ /_/
+INFO  [2025-08-28 10:35:23,780] org.eclipse.jetty.setuid.SetUIDListener: Opened application@6c65860d{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+INFO  [2025-08-28 10:35:23,781] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@2d000e80{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+INFO  [2025-08-28 10:35:23,783] org.eclipse.jetty.server.Server: jetty-9.4.29.v20200521; built: 2020-05-21T17:20:40.598Z; git: 77c232aed8a45c818fd27232278d9f95a021095e; jvm 21.0.8+9-Ubuntu-0ubuntu124.04.1
+INFO  [2025-08-28 10:35:24,527] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     / (com.github.jobson.resources.RootResource)
+    GET     /v1 (com.github.jobson.resources.v1.V1RootResource)
+    GET     /v1/jobs (com.github.jobson.resources.v1.JobResource)
+    POST    /v1/jobs (com.github.jobson.resources.v1.JobResource)
+    DELETE  /v1/jobs/{job-id} (com.github.jobson.resources.v1.JobResource)
+    GET     /v1/jobs/{job-id} (com.github.jobson.resources.v1.JobResource)
+    POST    /v1/jobs/{job-id}/abort (com.github.jobson.resources.v1.JobResource)
+    GET     /v1/jobs/{job-id}/inputs (com.github.jobson.resources.v1.JobResource)
+    GET     /v1/jobs/{job-id}/outputs (com.github.jobson.resources.v1.JobResource)
+    GET     /v1/jobs/{job-id}/outputs/{output-id} (com.github.jobson.resources.v1.JobResource)
+    GET     /v1/jobs/{job-id}/spec (com.github.jobson.resources.v1.JobResource)
+    GET     /v1/jobs/{job-id}/stderr (com.github.jobson.resources.v1.JobResource)
+    GET     /v1/jobs/{job-id}/stdout (com.github.jobson.resources.v1.JobResource)
+    GET     /v1/specs (com.github.jobson.resources.v1.JobSpecResource)
+    GET     /v1/specs/{job-spec-id} (com.github.jobson.resources.v1.JobSpecResource)
+    GET     /v1/users/current (com.github.jobson.resources.v1.UserResource)
+
+INFO  [2025-08-28 10:35:24,530] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@7fd987ef{/,null,AVAILABLE}
+INFO  [2025-08-28 10:35:24,539] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+INFO  [2025-08-28 10:35:24,544] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@5b88b8e{/,null,AVAILABLE}
+INFO  [2025-08-28 10:35:24,552] org.eclipse.jetty.server.AbstractConnector: Started application@6c65860d{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+INFO  [2025-08-28 10:35:24,553] org.eclipse.jetty.server.AbstractConnector: Started admin@2d000e80{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+INFO  [2025-08-28 10:35:24,553] org.eclipse.jetty.server.Server: Started @2985ms
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:24 +0000] "GET /api/v1 HTTP/1.1" 404 54 "-" "curl/8.5.0" 106
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:24 +0000] "GET /api/v1 HTTP/1.1" 404 54 "-" "curl/8.5.0" 3
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "GET /api/v1 HTTP/1.1" 404 54 "-" "Python-urllib/3.12" 3
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "GET / HTTP/1.1" 200 63 "-" "Python-urllib/3.12" 29
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "GET /api/v1 HTTP/1.1" 404 54 "-" "Python-urllib/3.12" 3
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "GET /api/v1/specs HTTP/1.1" 404 54 "-" "Python-urllib/3.12" 2
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "GET /api/v1/specs/echo HTTP/1.1" 404 54 "-" "Python-urllib/3.12" 2
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "GET /api/v1/specs/sleep HTTP/1.1" 404 54 "-" "Python-urllib/3.12" 2
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "GET /api/v1/jobs HTTP/1.1" 404 54 "-" "Python-urllib/3.12" 2
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "GET /api/v1/users/current HTTP/1.1" 404 54 "-" "Python-urllib/3.12" 3
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "POST /api/v1/jobs HTTP/1.1" 404 54 "-" "Python-urllib/3.12" 3
+0:0:0:0:0:0:0:1 - - [28/Aug/2025:10:35:28 +0000] "GET /api/v1/jobs?page-size=5&page=0 HTTP/1.1" 404 54 "-" "Python-urllib/3.12" 3
+INFO  [2025-08-28 10:35:28,365] org.eclipse.jetty.server.AbstractConnector: Stopped application@6c65860d{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+INFO  [2025-08-28 10:35:28,366] org.eclipse.jetty.server.AbstractConnector: Stopped admin@2d000e80{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+INFO  [2025-08-28 10:35:28,367] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@5b88b8e{/,null,UNAVAILABLE}
+INFO  [2025-08-28 10:35:28,374] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@7fd987ef{/,null,UNAVAILABLE}

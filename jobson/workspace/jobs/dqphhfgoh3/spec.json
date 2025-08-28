@@ -1,0 +1,18 @@
+{
+  "id" : "echo",
+  "name" : "Echo",
+  "description" : "Simple echo command",
+  "expectedInputs" : [ {
+    "type" : "string",
+    "id" : "message",
+    "name" : "Message",
+    "description" : "The message to echo",
+    "default" : null
+  } ],
+  "execution" : {
+    "application" : "echo",
+    "arguments" : [ "${inputs.message}" ],
+    "dependencies" : null
+  },
+  "expectedOutputs" : [ ]
+}
