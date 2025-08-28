@@ -1,0 +1,22 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8081
+  adminConnectors:
+    - type: http
+      port: 8082
+
+jobs:
+  dir: /tmp/jobson-jobs
+
+specs:
+  dir: specs
+
+workingDirs:
+  dir: /tmp/jobson-wds
+
+users:
+  file: /tmp/jobson-users
+
+authentication:
+  type: guest

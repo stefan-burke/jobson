@@ -5,7 +5,7 @@ class JobExecutorJob < ApplicationJob
     job = Job.find(job_id)
     return unless job
     
-    Job.add_timestamp(job_id, 'RUNNING')
+    Job.add_timestamp(job_id, 'RUNNING', 'Submitted to executor')
     
     # Broadcast status update
     ActionCable.server.broadcast("job_events", {
@@ -16,7 +16,7 @@ class JobExecutorJob < ApplicationJob
     
     begin
       execute_job(job)
-      Job.add_timestamp(job_id, 'FINISHED')
+      Job.add_timestamp(job_id, 'FINISHED', 'Execution finished')
       
       ActionCable.server.broadcast("job_events", {
         job_id: job_id,
@@ -27,7 +27,7 @@ class JobExecutorJob < ApplicationJob
       Rails.logger.error "Job #{job_id} failed: #{e.message}"
       Rails.logger.error e.backtrace.join("\n")
       
-      Job.add_timestamp(job_id, 'FATAL_ERROR')
+      Job.add_timestamp(job_id, 'FATAL_ERROR', e.message)
       
       # Write error to stderr
       stderr_file = FileStorageService.job_path(job_id).join('stderr')

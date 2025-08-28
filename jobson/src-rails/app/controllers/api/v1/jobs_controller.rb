@@ -2,18 +2,22 @@ module Api
   module V1
     class JobsController < ApplicationController
       def index
+        Rails.logger.info "JobsController#index called! Path: #{request.path}"
+        
+        # Java defaults to page_size of 50 (see Constants.DEFAULT_PAGE_SIZE)
         # TypeScript sends 0-based page numbers, but our model uses 1-based
         page = (params[:page]&.to_i || 0) + 1
-        page_size = params[:page_size]&.to_i || 20
+        page_size = params[:page_size]&.to_i || 50  # Changed from 20 to 50 to match Java
         
         result = Job.all(page, page_size)
         
+        # Debug: Log what we're about to return
+        Rails.logger.info "Jobs index returning: page=#{result[:page]}, total=#{result[:total]}"
+        
+        # Java API only returns entries and _links, no pagination fields
         render json: {
           entries: result[:jobs].map { |job| job_details(job) },
-          page: result[:page],
-          pageSize: result[:page_size],
-          total: result[:total],
-          _links: pagination_links(page, page_size, result[:total])
+          _links: {}  # Java returns empty links for the collection
         }
       end
 
@@ -41,6 +45,8 @@ module Api
           return
         end
         
+        # Ensure owner is set to 'guest' for guest authentication (matching Java)
+        job_request[:owner] = 'guest'
         job = Job.create(job_request)
         
         render json: {
@@ -221,15 +227,27 @@ module Api
           }
         end
         
-        # Build base links
+        # Build base links (Java includes links conditionally based on what exists)
         links = {
           'self' => { 'href' => "/v1/jobs/#{job.id}" },
-          'stdout' => { 'href' => "/v1/jobs/#{job.id}/stdout" },
-          'stderr' => { 'href' => "/v1/jobs/#{job.id}/stderr" },
           'spec' => { 'href' => "/v1/jobs/#{job.id}/spec" },
-          'inputs' => { 'href' => "/v1/jobs/#{job.id}/inputs" },
           'outputs' => { 'href' => "/v1/jobs/#{job.id}/outputs" }
         }
+        
+        # Only include inputs link if job has inputs
+        if job.inputs && !job.inputs.empty?
+          links['inputs'] = { 'href' => "/v1/jobs/#{job.id}/inputs" }
+        end
+        
+        # Only include stdout link if stdout file exists
+        if job.stdout_exists?
+          links['stdout'] = { 'href' => "/v1/jobs/#{job.id}/stdout" }
+        end
+        
+        # Only include stderr link if stderr file exists
+        if job.stderr_exists?
+          links['stderr'] = { 'href' => "/v1/jobs/#{job.id}/stderr" }
+        end
         
         # Only include abort link for running/submitted jobs
         if job.latest_status && %w[SUBMITTED RUNNING].include?(job.latest_status)

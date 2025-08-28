@@ -12,19 +12,31 @@ class Job
     SecureRandom.base36(8)  # 8 bytes = ~10-11 base36 chars
   end
 
-  def self.all(page = 1, page_size = 20)
-    job_dirs = Dir.glob(FileStorageService.job_path('*')).sort.reverse
-    total = job_dirs.count
+  def self.all(page = 1, page_size = 50)  # Default 50 to match Java's Constants.DEFAULT_PAGE_SIZE
+    # Get all job directories
+    job_dirs = Dir.glob(FileStorageService.job_path('*'))
     
-    start_idx = (page - 1) * page_size
-    end_idx = start_idx + page_size
-    
-    jobs = (job_dirs[start_idx...end_idx] || []).map do |job_dir|
+    # Load all jobs with their timestamps for sorting
+    all_jobs = job_dirs.map do |job_dir|
       job_id = File.basename(job_dir)
       find(job_id)
     end.compact
+    
+    # Sort by last timestamp descending (newest first) to match Java's byFirstStatusDate
+    # Java sorts by comparing b.lastTimestamp to a.lastTimestamp (reverse order)
+    sorted_jobs = all_jobs.sort do |a, b|
+      a_time = a.timestamps.last ? Time.parse(a.timestamps.last['time']) : Time.at(0)
+      b_time = b.timestamps.last ? Time.parse(b.timestamps.last['time']) : Time.at(0)
+      b_time <=> a_time  # Descending order (newest first)
+    end
+    
+    # Apply pagination
+    total = sorted_jobs.count
+    start_idx = (page - 1) * page_size
+    end_idx = start_idx + page_size
+    paginated_jobs = sorted_jobs[start_idx...end_idx] || []
 
-    { jobs: jobs, total: total, page: page, page_size: page_size }
+    { jobs: paginated_jobs, total: total, page: page, page_size: page_size }
   end
 
   def self.find(job_id)
@@ -36,13 +48,22 @@ class Job
     
     request_data = JSON.parse(File.read(request_file))
     
+    # Read spec from spec.json (Java format)
+    spec_file = job_path.join('spec.json')
+    spec_data = File.exist?(spec_file) ? JSON.parse(File.read(spec_file)) : {}
+    spec_id = spec_data['id']
+    
+    # Read inputs from inputs.json (Java format)
+    inputs_file = job_path.join('inputs.json')
+    inputs_data = File.exist?(inputs_file) ? JSON.parse(File.read(inputs_file)) : {}
+    
     new(
       id: job_id,
       name: request_data['name'],
-      owner: request_data['owner'] || 'anonymous',
-      timestamps: load_timestamps(job_id),
-      spec: request_data['spec'],
-      inputs: request_data['inputs']
+      owner: request_data['owner'] || 'guest',
+      timestamps: request_data['timestamps'] || [],
+      spec: spec_id,
+      inputs: inputs_data
     )
   end
 
@@ -54,19 +75,19 @@ class Job
     # Convert inputs to hash (params[:inputs] is ActionController::Parameters)
     inputs_hash = params[:inputs]&.to_h || {}
     
-    # Save request data
+    # Save request data in Java-compatible format
+    # Java stores only id, name, owner, and timestamps in request.json
     request_data = {
       'id' => job_id,
       'name' => params[:name],
-      'spec' => params[:spec],
-      'inputs' => inputs_hash,
-      'owner' => params[:owner] || 'anonymous'
+      'owner' => params[:owner] || 'guest',
+      'timestamps' => []  # Will be updated when job runs
     }
     
     FileStorageService.write_json(job_path.join('request.json'), request_data)
     
     # Save initial timestamp
-    add_timestamp(job_id, 'SUBMITTED')
+    add_timestamp(job_id, 'SUBMITTED', 'Job persisted')
     
     # Copy spec snapshot
     spec = JobSpec.find(params[:spec])
@@ -84,21 +105,31 @@ class Job
   end
 
   def self.load_timestamps(job_id)
-    timestamp_file = FileStorageService.job_path(job_id).join('timestamps.json')
-    return [] unless File.exist?(timestamp_file)
-    JSON.parse(File.read(timestamp_file))
+    # Java stores timestamps in request.json, not a separate file
+    request_file = FileStorageService.job_path(job_id).join('request.json')
+    return [] unless File.exist?(request_file)
+    request_data = JSON.parse(File.read(request_file))
+    request_data['timestamps'] || []
   end
 
-  def self.add_timestamp(job_id, status)
-    timestamps = load_timestamps(job_id)
-    timestamps << {
-      'status' => status,
-      'time' => Time.now.iso8601
+  def self.add_timestamp(job_id, status, message = nil)
+    # Load the request.json file
+    request_file = FileStorageService.job_path(job_id).join('request.json')
+    request_data = JSON.parse(File.read(request_file))
+    
+    # Add the new timestamp (Java format with message)
+    request_data['timestamps'] ||= []
+    # Convert status to Java format (lowercase with hyphens instead of underscores)
+    java_status = status.downcase.gsub('_', '-')
+    timestamp_entry = {
+      'status' => java_status,
+      'time' => Time.now.utc.strftime('%Y-%m-%d %H:%M:%S.%LZ'),  # Java format
     }
-    FileStorageService.write_json(
-      FileStorageService.job_path(job_id).join('timestamps.json'),
-      timestamps
-    )
+    timestamp_entry['message'] = message if message
+    request_data['timestamps'] << timestamp_entry
+    
+    # Write back to request.json
+    FileStorageService.write_json(request_file, request_data)
   end
 
   def latest_status
@@ -131,11 +162,23 @@ class Job
     return '' unless File.exist?(stdout_file)
     File.read(stdout_file)
   end
+  
+  def stdout_exists?
+    # Java only includes stdout link if file exists and is non-empty
+    stdout_file = FileStorageService.job_path(id).join('stdout')
+    File.exist?(stdout_file) && File.size(stdout_file) > 0
+  end
 
   def stderr
     stderr_file = FileStorageService.job_path(id).join('stderr')
     return '' unless File.exist?(stderr_file)
     File.read(stderr_file)
+  end
+  
+  def stderr_exists?
+    # Java only includes stderr link if file exists and is non-empty
+    stderr_file = FileStorageService.job_path(id).join('stderr')
+    File.exist?(stderr_file) && File.size(stderr_file) > 0
   end
 
   def outputs

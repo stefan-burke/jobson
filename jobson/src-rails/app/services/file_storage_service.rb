@@ -5,13 +5,18 @@ class FileStorageService
     end
 
     def ensure_directories
-      %w[specs jobs wds users].each do |dir|
+      # Create Rails workspace directories
+      %w[specs users].each do |dir|
         FileUtils.mkdir_p(workspace_path.join(dir))
       end
+      # Ensure shared Java directories exist
+      FileUtils.mkdir_p('/tmp/jobson-jobs')
+      FileUtils.mkdir_p('/tmp/jobson-wds')
     end
 
     def job_path(job_id)
-      workspace_path.join('jobs', job_id)
+      # Use the same job directory as Java for compatibility testing
+      Pathname.new('/tmp/jobson-jobs').join(job_id)
     end
 
     def spec_path(spec_id)
@@ -19,7 +24,8 @@ class FileStorageService
     end
 
     def working_dir_path(job_id)
-      workspace_path.join('wds', job_id)
+      # Use the same working directory as Java for compatibility testing
+      Pathname.new('/tmp/jobson-wds').join(job_id)
     end
 
     def read_json(path)

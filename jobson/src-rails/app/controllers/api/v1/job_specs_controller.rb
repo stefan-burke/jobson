@@ -2,9 +2,12 @@ module Api
   module V1
     class JobSpecsController < ApplicationController
       def index
+        Rails.logger.info "JobSpecsController#index called!"
         specs = JobSpec.all
+        Rails.logger.info "Returning #{specs.count} specs"
         render json: {
-          entries: specs.map { |spec| spec_summary(spec) }
+          entries: specs.map { |spec| spec_summary(spec) },
+          _links: {}  # Java API includes empty _links
         }
       end
 
@@ -25,7 +28,9 @@ module Api
           'name' => spec.name,
           'description' => spec.description,
           '_links' => {
-            'self' => { 'href' => "/api/v1/specs/#{spec.id}" }
+            'details' => {
+              'href' => "/v1/specs/#{spec.id}"
+            }
           }
         }
       end
