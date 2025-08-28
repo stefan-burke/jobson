@@ -28,6 +28,7 @@ venv/
 jobson/src-rails/tmp/
 jobson/src-rails/log/
 jobson/src-rails/storage/
+jobson/src-rails/.bundle
 jobson/src-rails/.byebug_history
 jobson/src-rails/workspace/jobs/
 jobson/src-rails/workspace/wds/

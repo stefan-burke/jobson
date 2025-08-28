@@ -15,6 +15,17 @@ mkdir -p "${JOBSON_SHARE_DIR}" "${BIN_DIR}"
 # Copy Rails app
 cp -r ../jobson/src-rails/* "${JOBSON_SHARE_DIR}/"
 
+# Build and copy UI files
+echo "Building UI..."
+(cd ../jobson-ui && npm install && npm run build) || {
+    echo "Error: Failed to build UI. Make sure Node.js and npm are installed."
+    exit 1
+}
+
+# Copy built UI files (webpack outputs to target/site)
+mkdir -p "${JOBSON_SHARE_DIR}/ui/html"
+cp -r ../jobson-ui/target/site/* "${JOBSON_SHARE_DIR}/ui/html/"
+
 # Remove development artifacts
 for dir in tmp log storage workspace .byebug_history; do
     rm -rf "${JOBSON_SHARE_DIR}/${dir}"
@@ -117,6 +128,11 @@ start_server() {
         bundle config set --local deployment 'true'
         bundle config set --local path 'vendor/bundle'
         bundle install --quiet
+    fi
+    
+    # Generate a secure secret key base if not provided
+    if [[ -z "${SECRET_KEY_BASE}" ]]; then
+        export SECRET_KEY_BASE=$(head -c 64 /dev/urandom | hexdump -v -e '1/1 "%02x"')
     fi
     
     # Start Rails server
