@@ -2,6 +2,7 @@ package com.github.jobson.compatibility;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.junit.Test;
 import org.junit.BeforeClass;
 
@@ -10,6 +11,8 @@ import java.net.URL;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.List;
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -270,6 +273,26 @@ public class RailsCompatibilityTest {
             assertEquals("Job ID should match", jobId, jobJson.get("id").asText());
             assertEquals("Job name should match", "Test Job", jobJson.get("name").asText());
             assertNotNull("Job should have timestamps", jobJson.get("timestamps"));
+        }
+    }
+    
+    // Helper method to sort job entries by ID for consistent comparison
+    private void sortJobEntries(JsonNode response) {
+        if (response.has("entries") && response.get("entries").isArray()) {
+            ArrayNode entries = (ArrayNode) response.get("entries");
+            List<JsonNode> entryList = new ArrayList<>();
+            entries.forEach(entryList::add);
+            
+            // Sort by job ID
+            entryList.sort((a, b) -> {
+                String idA = a.has("id") ? a.get("id").asText() : "";
+                String idB = b.has("id") ? b.get("id").asText() : "";
+                return idA.compareTo(idB);
+            });
+            
+            // Clear and rebuild the array
+            entries.removeAll();
+            entryList.forEach(entries::add);
         }
     }
     
